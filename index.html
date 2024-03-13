@@ -11,9 +11,10 @@
     <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
     <!-- Bootstrap + Meyawo main styles -->
     <link rel="stylesheet" href="assets/css/vichea.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home" >
 
     <!-- Page Navbar -->
     <nav class="custom-navbar" data-spy="affix" data-offset-top="20">
@@ -62,16 +63,20 @@
     </header><!-- end of page header -->
 
     <!-- about section -->
-    <section class="section pt-0" id="about">
+    <section class="section pt-0" id="about" data-aos="fade-up">
         <!-- container -->
         <div class="container text-center">
             <!-- about wrapper -->
             <div class="about">
-                <div class="about-img-holder">
+                <div class="about-img-holder" data-aos="fade-up-right"
+     data-aos-easing="linear"
+     data-aos-duration="1000">
                     <img src="assets/imgs/man.png" class="about-img"
                         alt="profile pic">
                 </div>
-                <div class="about-caption">
+                <div class="about-caption" data-aos="fade-up-left"
+     data-aos-easing="linear"
+     data-aos-duration="1000">
                     <p class="section-subtitle">Who Am I ?</p>
                     <h2 class="section-title mb-3">About Me</h2>
                     <p>
@@ -84,13 +89,14 @@
     </section> <!-- end of about section -->
 
     <!-- service section -->
-    <section class="section" id="service">
+    <section class="section" id="service" data-aos="zoom-out" data-aos-easing="linear"
+     data-aos-duration="1000">
         <div class="container text-center">
             <p class="section-subtitle">What I Do ?</p>
             <h6 class="section-title mb-6">Skills</h6>
             <!-- row -->
             <div class="row justify-content-center">
-                <div class="col-md-6 col-lg-3">
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in-right">
                     <div class="service-card">
                         <div class="body">
                             <img src="assets/imgs/responsive.svg"
@@ -101,7 +107,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3">
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in-left">
                     <div class="service-card">
                         <div class="body">
                             <img src="assets/imgs/toolbox.svg"
@@ -117,12 +123,14 @@
     </section><!-- end of service section -->
 
     <!-- portfolio section -->
-    <section class="section" id="project">
+    <section class="section" id="project" data-aos="flip-up" data-aos-easing="linear"
+     data-aos-duration="1000">
         <div class="container text-center">
             <p class="section-subtitle">What I Did ?</p>
             <h6 class="section-title mb-6">Projects</h6>
             <!-- row -->
-            <div class="row justify-content-center">
+            <div class="row justify-content-center" data-aos="zoom-in" data-aos-easing="linear"
+     data-aos-duration="1000">
                 <div class="col-md-4">
                     <a href="https://vicheaaaa.netlify.app/" target="_blank" class="portfolio-card">
                         <img src="assets/imgs/w1.png" class="portfolio-card-img"
@@ -134,7 +142,8 @@
                         </span>
                     </a>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4" data-aos="zoom-in" data-aos-easing="linear"
+     data-aos-duration="1000">
                     <a href="https://vichea.netlify.app/" target="_blank" class="portfolio-card">
                         <img class="portfolio-card-img" src="assets/imgs/w2.png" class="img-responsive rounded"
                             alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
@@ -152,7 +161,8 @@
 
 
     <!-- section -->
-    <section class="section-sm bg-primary">
+    <section class="section-sm bg-primary" data-aos="fade-in-right" data-aos-easing="linear"
+     data-aos-duration="1000"> 
         <!-- container -->
         <div class="container text-center text-sm-left">
             <!-- row -->
@@ -168,7 +178,8 @@
         </div> <!-- end of container -->
     </section> <!-- end of section -->
 
-    <section class="section" id="experience">
+    <section class="section" id="experience" data-aos="fade-up"
+     data-aos-anchor-placement="bottom-bottom">
         <div class="container text-center">
             <p class="section-subtitle">This is my valueable experience</p>
             <h6 class="section-title mb-6">Experience</h6>
@@ -209,7 +220,9 @@
 
 
     <!-- contact section -->
-    <section class="section" id="contact">
+    <section class="section" id="contact" data-aos="fade-left"
+     data-aos-offset="500"
+     data-aos-duration="500">
         <div class="container text-center">
             <p class="section-subtitle">How can you communicate?</p>
             <h6 class="section-title mb-5">Contact Me</h6>
@@ -249,6 +262,10 @@
             </div>
         </footer>
     </div> <!-- end of page footer -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
     <script>
         var TxtType = function(el, toRotate, period) {
         this.toRotate = toRotate;
