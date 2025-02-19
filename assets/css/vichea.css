@@ -36,10 +36,9 @@
 *::after {
   box-sizing: border-box;
 }
-html, body{
-  overflow: hidden;
-}
+
 html {
+  overflow-x: hidden;
   font-family: sans-serif;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
