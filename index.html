@@ -265,28 +265,50 @@
 
 
     <!-- contact section -->
-    <section class="section" id="contact" data-aos="fade-up" data-aos-offset="500" data-aos-duration="500" data-aos-once="true">
-    <div class="container text-center">
-        <p class="section-subtitle">How can you communicate?</p>
-        <h6 class="section-title mb-5">Contact Me</h6>
-        <form action="mailto:your-email@example.com" method="post" enctype="text/plain" class="contact-form col-md-10 col-lg-8 m-auto">
-            <div class="form-row">
-                <div class="form-group col-sm-6">
-                    <input type="text" name="name" size="50" class="form-control" placeholder="Your Name" required>
+    <section class="section" id="contact" data-aos="fade-up" data-aos-offset="500" data-aos-duration="500">
+        <div class="container text-center">
+            <p class="section-subtitle">How can you communicate?</p>
+            <h6 class="section-title mb-5">Contact Me</h6>
+    
+            <div id="alertContainer">
+                <div id="successAlert" class="alert alert-success alert-dismissible fade show" role="alert" style="display: none;">
+                    Form submitted successfully!
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <div class="form-group col-sm-6">
-                    <input type="email" name="email" class="form-control" placeholder="Enter Email" required>
+                <div id="errorAlert" class="alert alert-danger alert-dismissible fade show" role="alert" style="display: none;">
+                    Form submission failed.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <div class="form-group col-sm-12">
-                    <textarea name="message" id="comment" rows="6" class="form-control" style="min-height: 150px;" placeholder="Write Something"></textarea>
-                </div>
-                <div class="form-group col-sm-12 mt-3">
-                    <input type="submit" value="Send Message" class="btn btn-outline-primary rounded">
+                <div id="errorFetchAlert" class="alert alert-danger alert-dismissible fade show" role="alert" style="display: none;">
+                    An error occurred: <span id="errorMessage"></span>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
             </div>
-        </form>
-    </div>
-</section><!-- end of contact section -->
+    
+            <form id="contactForm" onsubmit="submitForm(); return false;" method="POST" class="contact-form col-md-10 col-lg-8 m-auto">
+                <div class="form-row">
+                    <div class="form-group col-sm-6">
+                        <input type="text" name="name" size="50" class="form-control" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <input type="email" name="email" class="form-control" placeholder="Enter Email" required>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <textarea name="message" id="comment" rows="6" class="form-control" style="min-height: 150px;" placeholder="Write Something"></textarea>
+                    </div>
+                    <div class="form-group col-sm-12 mt-3">
+                        <input type="submit" value="Send Message" class="btn btn-outline-primary rounded">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section><!-- end of contact section -->
 
     <!-- footer -->
     <div class="container">
@@ -306,6 +328,35 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
+    </script>
+    <script>
+        function submitForm() {
+            var form = document.getElementById('contactForm');
+            var formData = new FormData(form);
+    
+            fetch('https://script.google.com/macros/s/AKfycby8OF1HS78qo4CscgXT8YYfvWDXHa-AdCL82ge2MvfHyQzlXkZqNQQaPS6N3KOaZu2o/exec', {
+                method: 'POST',
+                body: formData
+            })
+          .then(response => {
+                if (response.ok) {
+                    document.getElementById('successAlert').style.display = 'block';
+                    document.getElementById('errorAlert').style.display = 'none';
+                    document.getElementById('errorFetchAlert').style.display = 'none';
+                    form.reset(); // Clear the form
+                } else {
+                    document.getElementById('successAlert').style.display = 'none';
+                    document.getElementById('errorAlert').style.display = 'block';
+                    document.getElementById('errorFetchAlert').style.display = 'none';
+                }
+            })
+          .catch(error => {
+                document.getElementById('successAlert').style.display = 'none';
+                document.getElementById('errorAlert').style.display = 'none';
+                document.getElementById('errorFetchAlert').style.display = 'block';
+                document.getElementById('errorMessage').textContent = error;
+            });
+        }
     </script>
     <script>
         var TxtType = function(el, toRotate, period) {
