@@ -269,10 +269,27 @@
         <div class="container text-center">
             <p class="section-subtitle">How can you communicate?</p>
             <h6 class="section-title mb-5">Contact Me</h6>
-    
+            
+            <form id="contactForm" onsubmit="submitForm(); return false;" method="POST" class="contact-form col-md-10 col-lg-8 m-auto">
+                <div class="form-row">
+                    <div class="form-group col-sm-6">
+                        <input type="text" name="name" size="50" class="form-control" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <input type="email" name="email" class="form-control" placeholder="Enter Email" required>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <textarea name="message" id="comment" rows="6" class="form-control" style="min-height: 150px;" placeholder="Write Something"></textarea>
+                    </div>
+                    <div class="form-group col-sm-12 mt-3">
+                        <input type="submit" value="Send Message" class="btn btn-outline-primary rounded">
+                    </div>
+                </div>
+            </form>
+            
             <div id="alertContainer">
                 <div id="successAlert" class="alert alert-success alert-dismissible fade show" role="alert" style="display: none;">
-                    Form submitted successfully!
+                    Thank you! I will contact you back soon.
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -290,23 +307,6 @@
                     </button>
                 </div>
             </div>
-    
-            <form id="contactForm" onsubmit="submitForm(); return false;" method="POST" class="contact-form col-md-10 col-lg-8 m-auto">
-                <div class="form-row">
-                    <div class="form-group col-sm-6">
-                        <input type="text" name="name" size="50" class="form-control" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group col-sm-6">
-                        <input type="email" name="email" class="form-control" placeholder="Enter Email" required>
-                    </div>
-                    <div class="form-group col-sm-12">
-                        <textarea name="message" id="comment" rows="6" class="form-control" style="min-height: 150px;" placeholder="Write Something"></textarea>
-                    </div>
-                    <div class="form-group col-sm-12 mt-3">
-                        <input type="submit" value="Send Message" class="btn btn-outline-primary rounded">
-                    </div>
-                </div>
-            </form>
         </div>
     </section><!-- end of contact section -->
 
